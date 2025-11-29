@@ -2217,8 +2217,8 @@ local Library do
                         BorderColor3 = FromRGB(0, 0, 0),
                         Text = "☰",
                         AutoButtonColor = false,
-                        AnchorPoint = Vector2New(0, 0),
-                        Position = UDim2New(0, 10, 0, 10),
+                        AnchorPoint = Vector2New(0, 0.5),
+                        Position = UDim2New(0, 10, 0.5, 0),
                         Size = UDim2New(0, 50, 0, 50),
                         BorderSizePixel = 0,
                         TextSize = 24,
@@ -2307,10 +2307,8 @@ local Library do
             
             -- Mobile toggle button connection
             if IsMobile and Items["MobileToggle"] then
-                Items["MobileToggle"]:Connect("InputBegan", function(Input)
-                    if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-                        Window:SetOpen(not Window.IsOpen)
-                    end
+                Items["MobileToggle"]:Connect("Activated", function()
+                    Window:SetOpen(not Window.IsOpen)
                 end)
             end
 
